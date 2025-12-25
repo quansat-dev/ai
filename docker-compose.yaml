@@ -1,0 +1,29 @@
+name: ai-quansat
+services:
+  ai:
+    image: quansat/ai
+    pull_policy: build
+    build:
+      context: .
+      dockerfile: ./dockerfile
+      args:
+        # change this to your deployment origin
+        - ORIGIN=http://localhost:${PORT:-3000}
+        - PORT=${PORT:-3000}
+      tags:
+        - quansat/ai:latest
+    environment:
+      - PORT=${PORT:-3000}
+    networks:
+      - ai-net
+    ports:
+      - ${APP_PORT:-3000}:${APP_PORT:-3000}
+    volumes:
+      - ai-data:/data
+
+volumes:
+  ai-data:
+
+networks:
+  ai-net:
+    driver: bridge

@@ -32,7 +32,7 @@ export default {
 			remoteFunctions: true,
 		},
 		version: {
-			name: `V1 (#${commitHash}@${Date.now()})`,
+			name: `#${commitHash}@${Date.now()}`,
 			// pollInterval: 10_000, // every 10 seconds
 		},
 	},
