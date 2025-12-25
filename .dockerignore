@@ -1,0 +1,29 @@
+# docker
+dockerfile
+.dockerignore
+docker-compose*.yaml
+
+# dependencies & development artifact
+node_modules
+build
+.svelte-kit
+.env*
+
+# editor config files
+.gitignore
+.editorconfig
+.prettierignore
+prettier.config.js
+stylelint.config.js
+eslint.config.js
+
+# documentation
+*.md
+
+# miscellaneous
+.npmrc
+.nvmrc
+
+# temporary files
+temp/
+
