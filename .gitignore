@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+*.log*
+
+# build artifacts
+build/
+.svelte-kit/
+
+# vite temp
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Env
+.env
+.env.*
+!.env.example
+
+# debugging artifacts
+.vscode/launch.json
+
+# temporary data during development & testing
+temp/

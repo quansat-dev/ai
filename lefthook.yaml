@@ -1,0 +1,21 @@
+assert_lefthook_installed: true
+min_version: 2.0.0
+glob_matcher: doublestar
+pre-commit:
+  follow: true
+  piped: true
+  jobs:
+    - name: eslint
+      run: pnpm eslint --fix {staged_files}
+      stage_fixed: true
+      glob: '**/*.{js,ts,svelte}'
+    - name: stylelint
+      run: pnpm stylelint --fix {staged_files}
+      stage_fixed: true
+      glob: '**/*.{svelte,css}'
+    - name: prettier
+      run: pnpm prettier --write {staged_files}
+      stage_fixed: true
+      glob: '**/*.{js,ts,css,json,md,yaml,svelte}'
+      exclude:
+        - pnpm-lock.yaml
