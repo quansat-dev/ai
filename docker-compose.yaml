@@ -6,14 +6,11 @@ services:
     build:
       context: .
       dockerfile: ./dockerfile
-      args:
-        # change this to your deployment origin
-        - ORIGIN=http://localhost:${PORT:-3000}
-        - PORT=${PORT:-3000}
       tags:
         - quansat/ai:latest
     environment:
       - PORT=${PORT:-3000}
+      - ORIGIN=http://localhost:${PORT:-3000}
     networks:
       - ai-net
     ports:
