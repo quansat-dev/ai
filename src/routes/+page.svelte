@@ -59,9 +59,9 @@
 	</div>
 </main>
 <footer class="max-w-pad tablet:py-6 desktop:py-8 py-4">
-	<a class="about-link c-link-preserved mx-auto block w-fit" href={resolve('/ve-ai')}>
-		Cái gì đây?
-	</a>
+	<div class="about-link c-text-body-sm text-on-surface-dim">
+		<a class="c-link-preserved mx-auto block w-fit" href={resolve('/ve-ai')}> Cái gì đây? </a>
+	</div>
 </footer>
 
 {#snippet quotes(cls: string)}
@@ -83,11 +83,19 @@
 
 	.about-link {
 		pointer-events: none;
+
+		transform: translateY(0.5rem);
+
 		opacity: 0;
-		transition: opacity 250ms 5s var(--default-transition-timing-function);
+
+		transition-delay: 5s;
+		transition-timing-function: var(--default-transition-timing-function);
+		transition-duration: 250ms;
+		transition-property: opacity, transform;
 
 		main:has(.output) ~ footer & {
 			pointer-events: auto;
+			transform: translateY(0);
 			opacity: 1;
 		}
 	}
